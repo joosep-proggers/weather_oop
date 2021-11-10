@@ -2,7 +2,6 @@
 const ls = new LS();
 
 const weatherLocation = ls.getLocationData();
-console.log(weatherLocation)
 
 // Weather object - init location
 const weather = new Weather(weatherLocation);
