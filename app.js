@@ -1,11 +1,18 @@
-const form = document.querySelector("form");
-form.addEventListener("submit", newCity)
+// LS object
+const ls = new LS();
+
+const weatherLocation = ls.getLocationData();
+console.log(weatherLocation)
 
 // Weather object - init location
-const weather = new Weather("Sus");
+const weather = new Weather(weatherLocation);
 
 // UI object
 const ui = new UI();
+
+const form = document.querySelector("form");
+form.addEventListener("submit", newCity)
+
 
 // get city weather and display it
 function newCity(){
@@ -13,6 +20,7 @@ function newCity(){
 	weather.changeCity(city);
 	getWeather();
 	event.preventDefault();
+	document.querySelector("#change-city").value = ""
 }
 
 function getWeather() {
